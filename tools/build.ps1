@@ -87,7 +87,16 @@ function Snapshot {
             $path=$entry.url -replace '^(jar|file)://','' -replace '!/.*$',''
             $path=[IO.Path]::GetFullPath($path.Replace('$PROJECT_DIR$',$projectRoot))
             if($path.Equals($configuredHome,[StringComparison]::OrdinalIgnoreCase) -or $path.StartsWith($configuredHome+'\',[StringComparison]::OrdinalIgnoreCase)){
-                $path=$resolvedHome+$path.Substring($configuredHome.Length)
+                $relativePath=$path.Substring($configuredHome.Length)
+                $path=$resolvedHome+$relativePath
+                if($relativePath -eq '\modules\riart\client\lib\uiriart_riasfbaseLevel-1.jar' -and !(Test-Path -LiteralPath $path)){
+                    # The test deployment carries the same dependency in GL.
+                    $deployedPath=Join-Path $resolvedHome 'modules\gl\lib\uiriart_riasfbaseLevel-1.jar'
+                    if((Test-Path -LiteralPath $deployedPath -PathType Leaf) -and
+                        (Get-FileHash -LiteralPath $deployedPath -Algorithm SHA256).Hash -eq '1038CD095F73E7C49E90562C0613A38C0E2DDE7BC81E64236B2BF92919E413E4'){
+                        $path=$deployedPath
+                    }
+                }
             }
             if(!(Test-Path -LiteralPath $path)){throw "Missing platform dependency: $path"}
             if(!$classpath.Contains($path)){$classpath.Add($path)}

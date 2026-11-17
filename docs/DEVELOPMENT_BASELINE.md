@@ -8,13 +8,19 @@
 
 ## 开工
 
-每个 Codex 会话选择本仓库作为项目。创建会话时选择 **Worktree**，以 `qd-test-20261117` 对应的提交或已发布的后续基线为起点。在工作树里创建该需求的分支，例如在工作树里运行 `git switch -c codex/material-batch`。
+每个 Codex 会话使用一个工作树和一个需求分支。创建会话时可以选择 **Worktree**，以 `qd-test-20261117` 对应的提交或已发布的后续基线为起点，再在工作树里运行 `git switch -c codex/material-batch`。
+
+如果桌面应用生成的工作树目录超出会话的可写范围，在开发仓库目录运行以下命令，然后用 Codex 将 `.worktrees/material-batch` 目录作为该需求会话的工作区。
+
+```powershell
+git worktree add -b codex/material-batch .worktrees/material-batch qd-test-20261117
+```
 
 校验各工作树引用的同一份 NC Home。在开发时用它提供 NC65 JDK 和依赖，构建输出位于各工作树自己的 `build` 目录。
 
 ```powershell
 ./tools/Test-RuntimeBaseline.ps1 -NcHome 'E:/01-Home/NC65home/QiDu-Test/nchome'
-.	oolsuild.ps1 -NcHome 'E:\01-Home\NC65home\QiDu-Test\nchome' -Test
+./tools/build.ps1 -NcHome 'E:/01-Home/NC65home/QiDu-Test/nchome' -Test
 ```
 
 改动小且已有成功的构建记录时，可以先运行 `tools/test-targeted.ps1`。交付会话在 [发布登记](RELEASE_LEDGER.md) 记录基线标签、提交 SHA、涉及的模块或类以及测试结果。

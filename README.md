@@ -1,5 +1,7 @@
 # 齐都 NC65 电子签名与审计追溯
 
+从测试基线开分支、配置工作树以及集成补丁的步骤见[开发基线说明](docs/DEVELOPMENT_BASELINE.md)。
+
 这是基于现场 NC65 私有依赖、IBM JDK 7 的二次开发工程，包含 `baseapp/uapbd/pu/so/ic/purp` 六个模块。源码使用 `public/private/client` 分层，保留原有示例和工程配置。
 
 ## 当前交付状态
