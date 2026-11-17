@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 附加服务注册：interface 为服务定位契约，implementation 为对应实现；注册存在不代表节点已验证或策略已启用。 -->
+<module name="so"><public>
+    <!-- ISaleOrderOperationAdapter：仅本地调用，禁止作为远程用户服务暴露；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="false" singleton="true" tx="CMT">
+<interface>nc.itf.so.qd.esign.ISaleOrderOperationAdapter</interface>
+<implementation>nc.impl.so.qd.esign.SaleOrderOperationAdapter</implementation>
+</component>
+    <!-- 单笔新增试点：保留 NC PF WRITE 调用；注册本身不启用节点策略。 -->
+    <component remote="false" singleton="true" tx="CMT">
+<interface>nc.itf.so.qd.esign.ISaleOrderPfSaveAdapter</interface>
+<implementation>nc.impl.so.qd.esign.SaleOrderPfSaveAdapter</implementation>
+</component></public></module>

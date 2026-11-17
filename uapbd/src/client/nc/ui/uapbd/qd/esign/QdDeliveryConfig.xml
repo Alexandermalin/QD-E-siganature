@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+      发货单维护（节点 40060402，正式清单第 229–238 行）客户端覆盖层。
+
+      只覆盖已核实的 PF 五键：保存（WRITE）、提交（SAVE）、收回（UNSAVE）、审批（APPROVE）、
+      取消审批（UNAPPROVE）。原生 property 逐项照抄 uiso_delivery.jar 内的
+      nc/ui/so/m4331/billui/model/delivery_config.xml：
+        - saveAction 的 filledUpInFlow=false 且注入 cardRefreshAction（仅编辑态二次确认分支刷新）；
+        - 其余四键 filledUpInFlow=true 并沿用各自的原生权限校验服务（PowerValidateService）。
+
+      不覆盖 deleteAction：删除的确认框顺序（确认 → 权限 → PF DELETE）尚未在真实 NC 会话核实，
+      且 SalesOtherNodeScope 中该按钮保持关闭；不覆盖 deliveryCloseAction / deliveryOpenAction /
+      rowCloseAction / rowOpenAction：四个直接服务动作不在本批客户端覆盖范围，本轮只在服务端
+      固定委托与行下标一致性校验，避免客户端参数未经验证就改变原生确认/重试顺序。
+    -->
+    <import resource="classpath:nc/ui/so/m4331/billui/model/delivery_config.xml" />
+    <!-- 保存：保留原生编辑态取数、预留行数量/发货仓库二次确认与结果刷新 -->
+    <bean id="saveAction" class="nc.ui.uapbd.qd.esign.QdDeliverySaveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="false" />
+        <property name="actionName" value="WRITE" />
+        <property name="billType" value="4331" />
+        <property name="refreshAction" ref="cardRefreshAction" />
+    </bean>
+    <!-- 提交：保留原生审批流准备、数据权限校验与结果回填 -->
+    <bean id="sendApproveAction" class="nc.ui.uapbd.qd.esign.QdDeliverySendApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="SAVE" />
+        <property name="billType" value="4331" />
+        <property name="validationService" ref="powersendapprovevalidservice" />
+    </bean>
+    <!-- 收回：保留原生工作项与状态校验 -->
+    <bean id="unsendApproveAction" class="nc.ui.uapbd.qd.esign.QdDeliveryUnSendApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="UNSAVE" />
+        <property name="billType" value="4331" />
+        <property name="validationService" ref="powerunsendvalidservice" />
+    </bean>
+    <!-- 审批：保留原生审批任务校验与审批窗口准备 -->
+    <bean id="approveAction" class="nc.ui.uapbd.qd.esign.QdDeliveryApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="APPROVE" />
+        <property name="billType" value="4331" />
+        <property name="validationService" ref="powerapprovevalidservice" />
+    </bean>
+    <!-- 取消审批：保留原生审批状态、工作项与下游限制校验 -->
+    <bean id="unApproveAction" class="nc.ui.uapbd.qd.esign.QdDeliveryUnApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="UNAPPROVE" />
+        <property name="billType" value="4331" />
+        <property name="validationService" ref="powerunapprovevalidservice" />
+    </bean>
+</beans>

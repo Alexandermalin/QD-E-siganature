@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/pu/qd/esign/qd_invoice_stage2_config.xml" />
+
+    <bean id="frozenAction" class="nc.ui.pu.qd.esign.status.StatusActions$InvoiceFreeze">
+        <property name="model" ref="ManageAppModel" />
+    </bean>
+
+    <bean id="unFrozenAction" class="nc.ui.pu.qd.esign.status.StatusActions$InvoiceUnfreeze">
+        <property name="model" ref="ManageAppModel" />
+    </bean>
+</beans>

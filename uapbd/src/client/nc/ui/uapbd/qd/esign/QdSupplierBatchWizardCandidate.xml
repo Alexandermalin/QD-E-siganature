@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="batchUpdateWizardAction" class="nc.ui.uapbd.qd.esign.QdPartnerBatchWizardAction">
+        <property name="model" ref="baseinfoModel" />
+        <property name="mdId" value="720dcc7c-ff19-48f4-b9c5-b90906682f45" />
+        <property name="qryTempNodeKey" value="" />
+        <property name="billTempNodekey" value="assign" />
+        <property name="billTemplatePkField" value="pk_supplier" />
+        <property name="qryService" ref="service" />
+        <property name="tabs"><list>
+            <bean class="nc.ui.bd.supplier.config.SupBaseInfoBatchUpdateTab"><property name="supBaseInfoService" ref="service" /></bean>
+            <bean class="nc.ui.bd.supplier.finance.SupFinanceBatchUpdateTab" />
+            <bean class="nc.ui.bd.supplier.stock.SupStockBatchUpdateTab" />
+        </list></property>
+        <property name="candidateEnabled" value="true" />
+    </bean>
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="list_freezeaction" class="nc.ui.uapbd.qd.esign.QdCustomerBatchFreezeAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+    </bean>
+    <bean id="list_unfreezeaction" class="nc.ui.uapbd.qd.esign.QdCustomerBatchUnfreezeAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+    </bean>
+    <bean id="card_freezeaction" class="nc.ui.uapbd.qd.esign.QdCustomerCardFreezeAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+    </bean>
+    <bean id="card_unfreezeaction" class="nc.ui.uapbd.qd.esign.QdCustomerCardUnfreezeAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+    </bean>
+</beans>

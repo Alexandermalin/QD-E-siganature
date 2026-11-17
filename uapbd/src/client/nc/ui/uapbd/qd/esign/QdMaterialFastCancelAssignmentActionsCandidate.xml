@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Source-only: candidate cancellation and a guarded native wizard. -->
+    <bean id="qdMaterialFastCancelAssignmentService" class="nc.ui.uapbd.qd.esign.QdMaterialFastCancelAssignmentService">
+        <property name="context" ref="context" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="assignService" ref="qdMaterialAssignService" />
+    </bean>
+    <bean id="qdMaterialFastCancelAssignmentContext" parent="assignContext">
+        <property name="assignService" ref="qdMaterialFastCancelAssignmentService" />
+        <property name="orgTypeIDs"><list><value>BUSINESSUNIT00000000</value></list></property>
+    </bean>
+    <bean id="CancelAssignAction" class="nc.ui.bd.pub.actions.BDCancelAssignAction">
+        <property name="model" ref="baseinfoModel" />
+        <property name="assignContext" ref="qdMaterialFastCancelAssignmentContext" />
+        <property name="interceptor" ref="manageModeActionInterceptor" />
+    </bean>
+    <bean id="AssignWizardAction" class="nc.ui.bd.pub.actions.BDAssignWizardAction">
+        <property name="model" ref="baseinfoModel" />
+        <property name="assignContext" ref="qdMaterialFastCancelAssignmentContext" />
+    </bean>
+</beans>

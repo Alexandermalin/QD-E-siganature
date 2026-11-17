@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/uapbd/qd/esign/QdRackStateCandidateConfig.xml" />
+    <bean id="saveaction" class="nc.ui.uapbd.qd.esign.QdArchiveTreeCodeSaveAction">
+        <property name="model" ref="appmodel" /><property name="editor" ref="editor" /><property name="refreshAction" ref="refreshaction" />
+    </bean>
+    <bean id="saveaddAction" class="nc.ui.uapbd.qd.esign.QdArchiveTreeSaveAddAction">
+        <property name="model" ref="appmodel" /><property name="editor" ref="editor" /><property name="addAction" ref="addaction" />
+    </bean>
+</beans>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Source-only candidate for the native material fast-batch dialog. -->
+    <bean id="batchUpdateWizardAction" class="nc.ui.uapbd.qd.esign.QdPartnerBatchWizardAction">
+        <property name="model" ref="baseinfoModel" />
+        <property name="mdId" value="c7dc0ccd-8872-4eee-8882-160e8f49dfad" />
+        <property name="qryTempNodeKey" value="" />
+        <property name="billTempNodekey" value="assign" />
+        <property name="billTemplatePkField" value="pk_material" />
+        <property name="qryService"><bean class="nc.ui.bd.material.baseinfo.model.MaterialBatchQueryService" /></property>
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="candidateEnabled" value="true" />
+    </bean>
+</beans>

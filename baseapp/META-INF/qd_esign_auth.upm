@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 附加服务注册：interface 为服务定位契约，implementation 为对应实现；注册存在不代表节点已验证或策略已启用。 -->
+<module name="baseapp">
+    <public>
+        
+    <!-- IIdentityConfirmationService：远程入口，实际用户权限仍由服务实现检查；不带业务事务，用于独立认证或分步事务调度；单例实现不得保存请求级共享状态；固定 MASTER 计数宿主并启用受保护访问，保持与原生认证计数一致。 -->
+    <component remote="true" singleton="true" cluster="MASTER" tx="NONE" accessProtected="true">
+            <interface>nc.itf.baseapp.qd.esign.IIdentityConfirmationService</interface>
+            <implementation>nc.impl.baseapp.qd.esign.IdentityConfirmationServiceImpl</implementation>
+        </component>
+    <!-- 签名认证只允许服务端调用，并加入签名请求的容器事务。 -->
+    <component remote="false" singleton="true" tx="CMT">
+            <interface>nc.itf.baseapp.qd.esign.ISignatureIdentityConfirmationService</interface>
+            <implementation>nc.impl.baseapp.qd.esign.IdentityConfirmationServiceImpl</implementation>
+        </component>
+    </public>
+</module>

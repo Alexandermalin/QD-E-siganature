@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 附加服务注册：interface 为服务定位契约，implementation 为对应实现；注册存在不代表节点已验证或策略已启用。 -->
+<module name="uapbd">
+  <public>
+    
+    <!-- ILogQueryService：远程入口，实际用户权限仍由服务实现检查；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="true" singleton="true" tx="CMT">
+      <interface>nc.itf.uapbd.qd.esign.ILogQueryService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.LogQueryServiceImpl</implementation>
+    </component>
+    
+    <!-- ILogExportService：远程入口，实际用户权限仍由服务实现检查；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="true" singleton="true" tx="CMT">
+      <interface>nc.itf.uapbd.qd.esign.ILogExportService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.LogExportServiceImpl</implementation>
+    </component>
+    
+    <!-- IArchiveMaintenanceService：仅本地调用，禁止作为远程用户服务暴露；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="false" singleton="true" tx="CMT">
+      <interface>nc.itf.uapbd.qd.esign.IArchiveMaintenanceService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.ArchiveMaintenanceServiceImpl</implementation>
+    </component>
+  </public>
+</module>

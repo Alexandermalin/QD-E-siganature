@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/cust/custclass/custclass_config.xml" />
+    <bean id="disableAction" class="nc.ui.uapbd.qd.esign.QdArchiveTreeDisableAction">
+        <property name="treeModel" ref="model" />
+        <property name="exceptionHandler" ref="exceptionHandler" />
+        <property name="refreshAction" ref="refreshaction" />
+        <property name="resourceCode" value="custclass" />
+        <property name="mdOperateCode" value="disable" />
+    </bean>
+</beans>

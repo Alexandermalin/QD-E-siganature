@@ -1,0 +1,232 @@
+{
+  "SchemaVersion": 1,
+  "Baseline": "qd-esign-test-20261117",
+  "Scope": "qd_esign*.jar and qd_esign*.upm under modules",
+  "Files": [
+    {
+      "Path": "modules/baseapp/lib/qd_esign_baseapp_public.jar",
+      "Size": 3010,
+      "Sha256": "336FB5F0A057900EB61B728181608A6978920FE526E587B3FF4993BB208D548C"
+    },
+    {
+      "Path": "modules/baseapp/META-INF/lib/qd_esign_baseapp_private.jar",
+      "Size": 5536,
+      "Sha256": "9CA6CE9CBD6C99E511AEDA076B9713BAB0863A8BB70D4F67D42556031E263512"
+    },
+    {
+      "Path": "modules/baseapp/META-INF/qd_esign_auth.upm",
+      "Size": 1246,
+      "Sha256": "687A05B0FEF6AA64E5531A6B3BFAB3E5089BC0494D7B4206D0946FAADC71C4BD"
+    },
+    {
+      "Path": "modules/ic/client/lib/qd_esign_inventory_client.jar",
+      "Size": 108025,
+      "Sha256": "D6F2AEF29924FF804756A05F353E9BD72C3A94FF388378A6A4263D231B178BB5"
+    },
+    {
+      "Path": "modules/ic/lib/qd_esign_ic_public.jar",
+      "Size": 25008,
+      "Sha256": "0655DED33ECA224ADA0CD76B724BB330F7D0E3D505966DEF84513CEE5F80282C"
+    },
+    {
+      "Path": "modules/ic/lib/qd_esign_inventory_public.jar",
+      "Size": 1919,
+      "Sha256": "64DE885C2AF149E16EB1DAC9C5126E55CA4488331D3AAE5886744D2FA30D90F8"
+    },
+    {
+      "Path": "modules/ic/META-INF/lib/qd_esign_ic_private.jar",
+      "Size": 63271,
+      "Sha256": "E45049E5C3DE5333341490B76A96717129D83EF7BC0140ABA7B4D812DD364828"
+    },
+    {
+      "Path": "modules/ic/META-INF/lib/qd_esign_inventory_private.jar",
+      "Size": 37893,
+      "Sha256": "373EFB171D1F4D75DB875404EBB8F222068DE6C02A0C89CA89A2D0CD4F8036B0"
+    },
+    {
+      "Path": "modules/ic/META-INF/qd_esign_inventory_adapter.upm",
+      "Size": 1606,
+      "Sha256": "7F92EFAA080416C0638A39B494F06206B653D8B91845F1A739BF0950E2463769"
+    },
+    {
+      "Path": "modules/ic/META-INF/qd_esign_inventory_pf.upm",
+      "Size": 354,
+      "Sha256": "3AE1F7A84EB2B78DED94FD81141B60EC3898226929BE1162BB413E642921C258"
+    },
+    {
+      "Path": "modules/pu/client/lib/qd_esign_pu_pilot_client.jar",
+      "Size": 183854,
+      "Sha256": "D1D49025F7A54BA37865973ABBD02950F344E66E19574CFDC175777D1ADB40D5"
+    },
+    {
+      "Path": "modules/pu/lib/qd_esign_pu_pilot_public.jar",
+      "Size": 30302,
+      "Sha256": "4FA2AD4921C65085D317E737FD4CC9461BE0572918CF8123D559C074ECF45F8F"
+    },
+    {
+      "Path": "modules/pu/lib/qd_esign_pu_public.jar",
+      "Size": 1425,
+      "Sha256": "D396053CC782577BDA180310BCFDC8ED71946C489A0AC45A2651A0F57E810D40"
+    },
+    {
+      "Path": "modules/pu/META-INF/lib/qd_esign_pu_pilot_private.jar",
+      "Size": 64718,
+      "Sha256": "A9E933C7542758D04821F61FEBDD45A30226F784B798F00F3A54C43D530F33EE"
+    },
+    {
+      "Path": "modules/pu/META-INF/lib/qd_esign_pu_private.jar",
+      "Size": 4231,
+      "Sha256": "5CB1C09BF8B7F6253FC7C71B06FDB31244139ABC5027390FBCD0C19C3348ADEA"
+    },
+    {
+      "Path": "modules/pu/META-INF/qd_esign_invoice_ap_adapter.upm",
+      "Size": 374,
+      "Sha256": "AC37EF894D99BBAA990791F74D77082A4B85A4043FAD53C1954D79953D40D03C"
+    },
+    {
+      "Path": "modules/pu/META-INF/qd_esign_invoice_relation_adapter.upm",
+      "Size": 392,
+      "Sha256": "3197E9AFFCD5C976DEA6345F9B8E5E99FE3C17F9C2F5CDA61BB32AE75E250E88"
+    },
+    {
+      "Path": "modules/pu/META-INF/qd_esign_procurement_bill_adapter.upm",
+      "Size": 392,
+      "Sha256": "8C63F99EA9DAB7B8D29C0E374567A732290C0E408A95E6276987552C74FAE2CC"
+    },
+    {
+      "Path": "modules/pu/META-INF/qd_esign_procurement_status_adapter.upm",
+      "Size": 398,
+      "Sha256": "2254CC731CF589447B994D0D915B595AB0636344EDCBB26B2C3C7F36D23813F3"
+    },
+    {
+      "Path": "modules/pu/META-INF/qd_esign_procurement_workflow_adapter.upm",
+      "Size": 404,
+      "Sha256": "D277EA70D43A314FF92A7B87938998CB0DDD8B0F24AD9DAF924DD3CAED19A30C"
+    },
+    {
+      "Path": "modules/pu/META-INF/qd_esign_purchase_adapter.upm",
+      "Size": 748,
+      "Sha256": "89A1E32B88B03C322DDD1387B8896E747008F29B038BC4CD04B7705C34D82DD5"
+    },
+    {
+      "Path": "modules/purp/client/lib/qd_esign_purp_procurement_client.jar",
+      "Size": 19159,
+      "Sha256": "D9652D6824E114FA85F560BE144BDAEE45FD5FEC0363C28E31EF79F560E5D83F"
+    },
+    {
+      "Path": "modules/purp/lib/qd_esign_purp_procurement_public.jar",
+      "Size": 3170,
+      "Sha256": "1C4F184222893882FAD3AF6C6A76324ED5468F5BEC7AEFC926AE7C1D77218518"
+    },
+    {
+      "Path": "modules/purp/lib/qd_esign_purp_public.jar",
+      "Size": 1030,
+      "Sha256": "E73C861BFE23264C4F591F37C470D1212DF75836251440FE1B5B6D1818227D69"
+    },
+    {
+      "Path": "modules/purp/META-INF/lib/qd_esign_purp_private.jar",
+      "Size": 4213,
+      "Sha256": "41F2CC4F5C5A1DF4164173CD8676C17797543797E37DB600976AD3FB6EAA8F8E"
+    },
+    {
+      "Path": "modules/purp/META-INF/lib/qd_esign_purp_procurement_private.jar",
+      "Size": 9067,
+      "Sha256": "3352B7F2FE48D272ABF506280F47CCADC0B13F8983836BE5406E5FB5756C2415"
+    },
+    {
+      "Path": "modules/purp/META-INF/qd_esign_supplier_price_adapter.upm",
+      "Size": 762,
+      "Sha256": "BF3C1D72313D46988A04BA6579ECCB27D96B0A32E00F9D9E2294625DBEB77913"
+    },
+    {
+      "Path": "modules/purp/META-INF/qd_esign_supplier_price_batch_adapter.upm",
+      "Size": 397,
+      "Sha256": "2FA18CC93572ED47C0A11A73AED026F4C98D736C84FD427B2563C8CB5A7ED519"
+    },
+    {
+      "Path": "modules/riart/META-INF/lib/qd_esign_inventory_riart_private.jar",
+      "Size": 2226,
+      "Sha256": "92BA69C0DF0E91F26B8D62836F331DDE818635C443E188112A429931315A8B67"
+    },
+    {
+      "Path": "modules/so/lib/qd_esign_so_public.jar",
+      "Size": 10992,
+      "Sha256": "EF14BB5A1257FE7A840E23EB357D7D4ECCF6527E6AEC5BC4605EAEC8414261F7"
+    },
+    {
+      "Path": "modules/so/META-INF/lib/qd_esign_so_private.jar",
+      "Size": 58016,
+      "Sha256": "895C798E53E9F2DD6A93FA57F97355B8211C45240F5F549C74783CF78D85AD93"
+    },
+    {
+      "Path": "modules/so/META-INF/qd_esign_saleorder.upm",
+      "Size": 665,
+      "Sha256": "E195AC9CBFEB8A495E8D3BC1A28F5953D79A8C54406AB6A22FD92E82C6EBFF84"
+    },
+    {
+      "Path": "modules/so/META-INF/qd_esign_sales_close_manage.upm",
+      "Size": 326,
+      "Sha256": "DC18BD873EEED5C676208FF88EC0E911AC9BBE1C3AE812711E6FC42FCBBA0CAB"
+    },
+    {
+      "Path": "modules/so/META-INF/qd_esign_sales_documents.upm",
+      "Size": 561,
+      "Sha256": "F262A7BE41F9C6351BB7BBF09C93497BA4ABCB607D1F721E66FFDAF4FA43BD45"
+    },
+    {
+      "Path": "modules/uapbd/client/lib/qd_esign_uapbd_client.jar",
+      "Size": 1031063,
+      "Sha256": "2FD1880ACC5280BC17DE8546B634EA4C0164296EC3AE7EED1F885F472875D619"
+    },
+    {
+      "Path": "modules/uapbd/lib/qd_esign_uapbd_public.jar",
+      "Size": 134087,
+      "Sha256": "589DF64C980D9051AE0FEEA57B5A02E4EFB54CCEF2FDA0C9BC299A07CFF90657"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/lib/qd_esign_uapbd_private.jar",
+      "Size": 1107224,
+      "Sha256": "6A87ECAB8D8138041E798A297D4DF530DAAC646B2C4EFC341195ED2B0537F53D"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_core.upm",
+      "Size": 2013,
+      "Sha256": "0D3C4018451B48D27569B7A9A9293A0D748E4679B9C8A188BD78EEB41088DAEE"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_inventory_sapply_approval.upm",
+      "Size": 413,
+      "Sha256": "F32EA29AA72A3FE659A8FA4D4647A4B8C14DC5D64CDCC241F733C3CFB5C9A837"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_invoice_relation_journal.upm",
+      "Size": 584,
+      "Sha256": "8D0376CD0661A7752B4A8F830E9475DF6DD6828D6DC32D45FBC8FB6EF0381E86"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_logs.upm",
+      "Size": 1567,
+      "Sha256": "CE1868FBF1D579F7FAAAC34B969E1276631F8D3F6979A0FAD3985F2180FD3EAA"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_material.upm",
+      "Size": 8902,
+      "Sha256": "0B8E25DEA997CF2EFE409BB194AB41AEAEF08E8999156891EF16E44A3BB024E6"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_order_state.upm",
+      "Size": 588,
+      "Sha256": "6387B70EA11DFBE0A90C1FEF541843DB8700B680FC33D5B519FA8E375ADF5CB8"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_sales_auxiliary.upm",
+      "Size": 568,
+      "Sha256": "72F24607DC1C897BCDB5B52CD89C5791A0BD4A031FD893A80EA5024AA1478749"
+    },
+    {
+      "Path": "modules/uapbd/META-INF/qd_esign_uapbd_private.jar",
+      "Size": 1105288,
+      "Sha256": "073BF468D7A27580BF2EC12A4E7510DE7BD92F2B4D0967C0A9257351F90396DA"
+    }
+  ]
+}

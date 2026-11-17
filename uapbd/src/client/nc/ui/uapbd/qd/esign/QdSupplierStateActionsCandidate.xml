@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="baseinfoenableaction" class="nc.ui.uapbd.qd.esign.QdSupplierBatchEnableAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="supplier" /><property name="mdOperateCode" value="enable" />
+    </bean>
+    <bean id="baseinfodisableaction" class="nc.ui.uapbd.qd.esign.QdSupplierBatchDisableAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="supplier" /><property name="mdOperateCode" value="disable" />
+    </bean>
+    <bean id="card_enableaction" class="nc.ui.uapbd.qd.esign.QdSupplierCardEnableAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="supplier" /><property name="mdOperateCode" value="enable" />
+    </bean>
+    <bean id="card_disableaction" class="nc.ui.uapbd.qd.esign.QdSupplierCardDisableAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="supplier" /><property name="mdOperateCode" value="disable" />
+    </bean>
+</beans>

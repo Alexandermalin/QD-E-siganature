@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 销售管理其他三节点（关闭管理/发货单/销售发票）服务注册：interface 为服务定位契约，implementation 为对应实现；
+     注册存在不代表节点已验证或策略已启用，映射与策略仍由 qd_es_node / qd_es_policy 控制。 -->
+<module name="so"><public>
+    <!-- 销售订单关闭管理（40060303，正式清单 217–228）：仅本地调用，禁止作为远程用户服务暴露；
+         加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.so.qd.esign.ISaleCloseOperationAdapter</interface>
+        <implementation>nc.impl.so.qd.esign.SaleCloseOperationAdapter</implementation>
+    </component>
+    <!-- 发货单维护（40060402，正式清单 229–238）：固定 PF 与 IDeliveryAssitFunc 委托，只接受单笔。 -->
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.so.qd.esign.IDeliveryOperationAdapter</interface>
+        <implementation>nc.impl.so.qd.esign.DeliveryOperationAdapter</implementation>
+    </component>
+    <!-- 销售发票维护（40060501，正式清单 239–244）：保留原生 PF 链路与组合校验器。 -->
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.so.qd.esign.ISaleInvoiceOperationAdapter</interface>
+        <implementation>nc.impl.so.qd.esign.SaleInvoiceOperationAdapter</implementation>
+    </component>
+</public></module>

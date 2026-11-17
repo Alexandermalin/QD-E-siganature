@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="QD_ESIGN_PROCUREMENT_BILL_ADAPTER">
+    <public>
+        <component remote="false" singleton="true" tx="CMT">
+            <interface>nc.itf.pu.qd.esign.IProcurementBillOperationAdapter</interface>
+            <implementation>nc.impl.pu.qd.esign.ProcurementBillOperationAdapter</implementation>
+        </component>
+    </public>
+</module>

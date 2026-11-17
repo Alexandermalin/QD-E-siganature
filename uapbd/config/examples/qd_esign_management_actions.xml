@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 离线接线参考：下述示例仅供逐节点验证后使用，不能因加入中文说明而启用任何注册。 -->
+<beans>
+    <!-- 仅为离线示例，没有已部署 NC 功能引用本文件；整个 bean 示例保持在注释内。
+    <bean id="qdPolicyAction" class="nc.ui.uapbd.qd.esign.QdPolicyAction"/>
+    <bean id="qdSignLogAction" class="nc.ui.uapbd.qd.esign.QdLogQueryAction">
+        <property name="logKind" value="SIGNATURE"/>
+    </bean>
+    <bean id="qdAuditLogAction" class="nc.ui.uapbd.qd.esign.QdLogQueryAction">
+        <property name="logKind" value="AUDIT"/>
+    </bean>
+    <bean id="qdSecurityLogAction" class="nc.ui.uapbd.qd.esign.QdLogQueryAction">
+        <property name="logKind" value="SECURITY"/>
+    </bean>
+    开放菜单前必须在 NC 登记节点及按钮权限；SIGNATURE、AUDIT、SECURITY 分别为签名、审计、安全日志。
+    策略读取使用 getPolicyForManagement 并检查独立管理权限；bean 属性是示例值，不是生效配置。
+    -->
+</beans>

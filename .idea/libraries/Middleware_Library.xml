@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Middleware_Library">
+    <CLASSES>
+      <root url="file://E:/01-Home/NC65home/QuDuTest/nchome/middleware/classes" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/ecj-3.7.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/fwejb.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/j2ee.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/jdmkrt.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/jmx.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/jstl.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/mw.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/standard.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/middleware/tomcat.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../01-Home/NC65home/QuDuTest/nchome/middleware/classes" />
+    </SOURCES>
+  </library>
+</component>

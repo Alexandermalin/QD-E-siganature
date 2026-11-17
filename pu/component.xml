@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding='gb2312'?>
+<!-- pu 模块描述：保留现有模块标识及空依赖列表；实际编译依赖由工程配置提供，不在此推测增加模块依赖。 -->
+	<module displayname="pu" name="pu">
+		<dependencies>
+		</dependencies>
+	</module>

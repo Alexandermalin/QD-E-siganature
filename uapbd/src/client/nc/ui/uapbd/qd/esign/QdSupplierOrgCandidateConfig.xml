@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/supplier/config/supplier_config_org.xml" />
+    <bean id="exinfoloader" class="nc.ui.uapbd.qd.esign.QdPartnerExinfoLoader"><property name="current_md_ID" value="720dcc7c-ff19-48f4-b9c5-b90906682f45" /></bean>
+    <bean id="modelDataManager" class="nc.ui.uapbd.qd.esign.QdSupplierListModelDataManager"><property name="manageModel" ref="baseinfoModel" /><property name="paginationModel" ref="paginationModel" /><property name="delegator" ref="paginationDelegator" /></bean>
+</beans>

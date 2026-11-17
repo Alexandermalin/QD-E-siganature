@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Framework_Library">
+    <CLASSES>
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/framework/codegen.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/framework/ejbgenerator.jar!/" />
+      <root url="jar://E:/01-Home/NC65home/QuDuTest/nchome/framework/sync.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

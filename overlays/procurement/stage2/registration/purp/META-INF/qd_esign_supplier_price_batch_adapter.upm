@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="QD_ESIGN_SUPPLIER_PRICE_BATCH_ADAPTER">
+    <public>
+        <component remote="false" singleton="true" tx="CMT">
+            <interface>nc.itf.purp.qd.esign.ISupplierPriceBatchOperationAdapter</interface>
+            <implementation>nc.impl.purp.qd.esign.SupplierPriceBatchAdapter</implementation>
+        </component>
+    </public>
+</module>

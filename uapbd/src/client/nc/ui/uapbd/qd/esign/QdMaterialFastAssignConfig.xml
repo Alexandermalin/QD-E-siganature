@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="qdMaterialAssignService" class="nc.ui.uapbd.qd.esign.QdMaterialAssignService">
+        <property name="context" ref="context" />
+        <property name="operationScope" ref="modelDataManager" />
+    </bean>
+    <bean id="qdMaterialAssignContext" parent="assignContext">
+        <property name="assignService" ref="qdMaterialAssignService" />
+        <property name="orgTypeIDs">
+            <list><value>BUSINESSUNIT00000000</value></list>
+        </property>
+    </bean>
+    <bean id="assignAction" class="nc.ui.bd.pub.actions.BDAssignAction">
+        <property name="model" ref="baseinfoModel" />
+        <property name="assignContext" ref="qdMaterialAssignContext" />
+        <property name="interceptor" ref="manageModeActionInterceptor" />
+    </bean>
+</beans>

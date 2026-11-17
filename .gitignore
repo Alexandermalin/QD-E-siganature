@@ -1,0 +1,15 @@
+/build/
+/out/
+/tmp/
+*.class
+*.log
+.idea/workspace.xml
+.idea/shelf/
+/nclogs/
+/modules/
+/.worktrees/
+*.jar
+*.zip
+__pycache__/
+.env
+.env.*

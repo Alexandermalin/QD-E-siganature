@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 候选替换：仅当物料删除路由已登记并通过隔离验收后部署；替换原生 deleteAction 的最终删除调用。 -->
+    <bean id="deleteAction" class="nc.ui.uapbd.qd.esign.QdMaterialDeleteAction">
+        <property name="model" ref="baseinfoModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="material" /><property name="mdOperateCode" value="delete" />
+        <property name="service" ref="service" /><property name="refreshaction" ref="refreshAction" />
+    </bean>
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/bankacc/cust/supplierbankacc.xml" />
+    <bean id="modelservice" class="nc.ui.uapbd.qd.esign.QdBankAccountModelService">
+        <property name="model" ref="appmodel" />
+    </bean>
+    <bean id="setDefaultAction" class="nc.ui.uapbd.qd.esign.QdBankAccountSetDefaultAction">
+        <property name="model" ref="appmodel" />
+        <property name="editor" ref="editor" />
+        <property name="exceptionHandler" ref="exceptionHandler" />
+    </bean>
+    <bean id="enableaction" class="nc.ui.uapbd.qd.esign.QdBankAccountEnableAction">
+        <property name="model" ref="appmodel" /><property name="resourceCode" value="supbankacc" /><property name="mdOperateCode" value="enable" />
+    </bean>
+    <bean id="disableaction" class="nc.ui.uapbd.qd.esign.QdBankAccountDisableAction">
+        <property name="model" ref="appmodel" /><property name="resourceCode" value="supbankacc" /><property name="mdOperateCode" value="disable" />
+    </bean>
+</beans>

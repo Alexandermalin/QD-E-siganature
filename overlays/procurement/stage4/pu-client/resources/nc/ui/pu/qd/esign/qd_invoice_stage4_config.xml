@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/pu/qd/esign/qd_invoice_stage3_config.xml" />
+
+    <bean id="sendApproveAction" class="nc.ui.pu.qd.esign.workflow.WorkflowActions$InvoiceCommit">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="preActionNames">
+            <list>
+                <value>SAVEBASE</value>
+            </list>
+        </property>
+        <property name="actionName" value="SAVE" />
+        <property name="billType" value="25" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="validationService" ref="sendpowervalidservice" />
+    </bean>
+
+    <bean id="unSendApproveAction" class="nc.ui.pu.qd.esign.workflow.WorkflowActions$InvoiceUnCommit">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="actionName" value="UNSAVEBILL" />
+        <property name="billType" value="25" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="validationService" ref="unsendpowervalidservice" />
+    </bean>
+
+    <bean id="approveAction" class="nc.ui.pu.qd.esign.workflow.WorkflowActions$InvoiceApprove">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="APPROVE" />
+        <property name="billType" value="25" />
+        <property name="validationService" ref="powerApproveValidService" />
+    </bean>
+
+    <bean id="unApproveAction" class="nc.ui.pu.qd.esign.workflow.WorkflowActions$InvoiceUnApprove">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="UNAPPROVE" />
+        <property name="billType" value="25" />
+        <property name="validationService" ref="powerUnapproveValidService" />
+    </bean>
+</beans>

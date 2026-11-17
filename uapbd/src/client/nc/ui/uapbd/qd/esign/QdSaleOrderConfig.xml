@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/so/m30/billui/model/saleorder_config.xml" />
+    <bean id="saveAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderSaveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="actionName" value="WRITE" />
+        <property name="billType" value="30" />
+        <property name="refreshAction" ref="cardRefreshAction" />
+    </bean>
+    <!--提交：保留原生流程准备/结果刷新；该 bean 同时被「保存并提交」复合动作复用 -->
+    <bean id="sendApproveAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderSendApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="SAVE" />
+        <property name="billType" value="30" />
+        <property name="validationService" ref="powersendappvalidservice" />
+        <property name="tpaProgressUtil" ref="tpaprogressutil" />
+    </bean>
+    <!--收回：保留原生流程上下文与工作项检查 -->
+    <bean id="unsendApproveAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderUnSendApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="UNSAVE" />
+        <property name="billType" value="30" />
+        <property name="validationService" ref="powerunsendappvalidservice" />
+        <property name="tpaProgressUtil" ref="tpaprogressutil" />
+    </bean>
+    <!--审批：审批窗口「确定」后才签名；打开或取消窗口不产生业务请求 -->
+    <bean id="approveAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="APPROVE" />
+        <property name="billType" value="30" />
+        <property name="validationService" ref="powerapprovevalidservice" />
+        <property name="tpaProgressUtil" ref="tpaprogressutil" />
+    </bean>
+    <!--取消审批：保留原生权限、工作项与下游检查 -->
+    <bean id="unApproveAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderUnApproveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="UNAPPROVE" />
+        <property name="billType" value="30" />
+        <property name="validationService" ref="powerunapprovevalidservice" />
+        <property name="tpaProgressUtil" ref="tpaprogressutil" />
+    </bean>
+    <!--删除：保留原生余额校验与删除确认；确认后才签名并走受控 PF DELETE -->
+    <bean id="deleteAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderDeleteAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="actionName" value="DELETE" />
+        <property name="billType" value="30" />
+        <property name="validationService" ref="powerdeletevalidservice" />
+    </bean>
+
+    <!--解冻：保留原生 ATP 继续/取消决策，签名后受控执行 -->
+    <bean id="unFreezeAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderUnFreezeAction">
+        <property name="model" ref="ManageAppModel" />
+    </bean>
+
+    <!--冻结：保留原生模型与返回 VO 合并 -->
+    <bean id="freezeAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderFreezeAction">
+        <property name="model" ref="ManageAppModel" />
+    </bean>
+    <!--整单关闭：保留原生关闭原因输入、整单行补齐与单张处理服务 -->
+    <bean id="closeAction" class="nc.ui.uapbd.qd.esign.QdSaleOrderCloseAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="singleBillService">
+            <bean class="nc.ui.so.m30.closemanage.model.M30CloseBillCloseService" />
+        </property>
+    </bean>
+</beans>

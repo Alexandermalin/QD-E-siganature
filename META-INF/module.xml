@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding='gb2312'?>
+<!-- 工程顶层模块描述：public/private 保留原有空结构，具体电子签名服务由各模块附加 UPM 注册。 -->
+	<module name="QD-E-Siganature">
+		<public>
+		</public>
+		<private>
+		</private>
+	</module>

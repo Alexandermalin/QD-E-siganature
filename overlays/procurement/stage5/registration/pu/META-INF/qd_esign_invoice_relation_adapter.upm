@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="QD_ESIGN_INVOICE_RELATION_ADAPTER">
+    <public>
+        <component remote="false" singleton="true" tx="CMT">
+            <interface>nc.itf.pu.qd.esign.IInvoiceRelationOperationAdapter</interface>
+            <implementation>nc.impl.pu.qd.esign.InvoiceRelationOperationAdapter</implementation>
+        </component>
+    </public>
+</module>

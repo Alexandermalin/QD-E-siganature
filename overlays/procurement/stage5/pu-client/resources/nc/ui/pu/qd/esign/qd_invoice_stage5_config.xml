@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/pu/qd/esign/qd_invoice_stage4_config.xml" />
+
+    <bean id="sendApAction" class="nc.ui.pu.qd.esign.workflow.InvoiceApActions$Send">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="SENDAP" />
+        <property name="billType" value="25" />
+    </bean>
+
+    <bean id="cancelSendApAction" class="nc.ui.pu.qd.esign.workflow.InvoiceApActions$Cancel">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="filledUpInFlow" value="true" />
+        <property name="actionName" value="CANCELSENDAP" />
+        <property name="billType" value="25" />
+    </bean>
+</beans>

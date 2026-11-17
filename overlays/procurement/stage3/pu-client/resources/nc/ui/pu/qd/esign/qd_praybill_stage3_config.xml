@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/pu/qd/esign/qd_praybill_stage2_config.xml" />
+
+    <bean id="closeAction" class="nc.ui.pu.qd.esign.status.StatusActions$PraybillClose">
+        <property name="model" ref="manageAppModel" />
+    </bean>
+
+    <bean id="openAction" class="nc.ui.pu.qd.esign.status.StatusActions$PraybillOpen">
+        <property name="model" ref="manageAppModel" />
+    </bean>
+
+    <bean id="rowCloseAction" class="nc.ui.pu.qd.esign.status.StatusActions$PraybillRowClose">
+        <property name="model" ref="manageAppModel" />
+        <property name="billForm" ref="billFormEditor" />
+        <property name="list" ref="listView" />
+    </bean>
+
+    <bean id="rowOpenAction" class="nc.ui.pu.qd.esign.status.StatusActions$PraybillRowOpen">
+        <property name="model" ref="manageAppModel" />
+        <property name="billForm" ref="billFormEditor" />
+        <property name="list" ref="listView" />
+    </bean>
+</beans>

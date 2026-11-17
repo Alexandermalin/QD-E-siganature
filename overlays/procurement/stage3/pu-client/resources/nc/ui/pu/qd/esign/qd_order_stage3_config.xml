@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/pu/qd/esign/qd_order_pilot_config.xml" />
+
+    <bean id="closeAction" class="nc.ui.pu.qd.esign.status.StatusActions$OrderClose">
+        <property name="model" ref="manageAppModel" />
+    </bean>
+
+    <bean id="openAction" class="nc.ui.pu.qd.esign.status.StatusActions$OrderOpen">
+        <property name="model" ref="manageAppModel" />
+    </bean>
+
+    <bean id="rowCloseAction" class="nc.ui.pu.qd.esign.status.StatusActions$OrderRowClose">
+        <property name="billForm" ref="billFormEditor" />
+        <property name="list" ref="listView" />
+    </bean>
+
+    <bean id="rowOpenAction" class="nc.ui.pu.qd.esign.status.StatusActions$OrderRowOpen">
+        <property name="billForm" ref="billFormEditor" />
+        <property name="list" ref="listView" />
+    </bean>
+
+    <bean id="freezeAction" class="nc.ui.pu.qd.esign.status.StatusActions$OrderFreeze">
+        <property name="model" ref="manageAppModel" />
+    </bean>
+
+    <bean id="unfreezeAction" class="nc.ui.pu.qd.esign.status.StatusActions$OrderUnfreeze">
+        <property name="model" ref="manageAppModel" />
+    </bean>
+</beans>

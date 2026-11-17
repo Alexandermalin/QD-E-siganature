@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Candidate only: do not register until native transaction and organization checks pass. -->
+    <import resource="classpath:nc/ui/bd/stordoc/stordoc_config_org.xml" />
+    <bean id="qdWarehouseNativeService" class="nc.ui.bd.stordoc.model.StordocAppModelService" />
+    <bean id="ManageModelService" class="nc.ui.uapbd.qd.esign.QdWarehouseModelService">
+        <constructor-arg ref="qdWarehouseNativeService" />
+    </bean>
+    <bean id="modelDataManager" class="nc.ui.uapbd.qd.esign.QdWarehouseModelDataManager">
+        <property name="model" ref="ManageAppModel" />
+    </bean>
+    <bean id="copyAddAction" class="nc.ui.uapbd.qd.esign.QdWarehouseCopyAddAction">
+        <constructor-arg ref="ManageModelService" />
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="editor" />
+    </bean>
+    <bean id="saveAction" class="nc.ui.uapbd.qd.esign.QdWarehouseSaveAction">
+        <constructor-arg ref="ManageModelService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="editor" />
+        <property name="validationService" ref="saveValidateService" />
+    </bean>
+    <bean id="saveAddAction" class="nc.ui.uapbd.qd.esign.QdWarehouseSaveAction">
+        <constructor-arg ref="ManageModelService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="editor" />
+        <property name="validationService" ref="saveValidateService" />
+        <property name="saveAdd" value="true" />
+        <property name="addAction" ref="addAction" />
+    </bean>
+    <bean id="deleteAction" class="nc.ui.uapbd.qd.esign.QdWarehouseDeleteAction">
+        <constructor-arg ref="ManageModelService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="model" ref="ManageAppModel" />
+        <property name="resourceCode" value="stordoc" />
+        <property name="mdOperateCode" value="delete" />
+    </bean>
+</beans>

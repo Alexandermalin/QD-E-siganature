@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/pu/m25/config/poInvoice_config.xml" />
+
+    <bean id="saveAction" class="nc.ui.pu.qd.esign.QdInvoiceSaveAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="actionName" value="SAVEBASE" />
+        <property name="billType" value="25" />
+        <property name="validationService" ref="validateService" />
+    </bean>
+
+    <bean id="deleteAction" class="nc.ui.pu.qd.esign.QdInvoiceDeleteAction">
+        <property name="model" ref="ManageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="actionName" value="DISCARD" />
+        <property name="billType" value="25" />
+        <property name="validationService" ref="powerDeleteValidService" />
+    </bean>
+</beans>

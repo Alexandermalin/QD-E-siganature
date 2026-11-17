@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Hyext_Client_Library">
+    <CLASSES>
+      <root url="file://E:/01-Home/NC65home/QuDuTest/nchome/modules/pu/client/hyext/classes" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../01-Home/NC65home/QuDuTest/nchome/modules/pu/client/hyext/classes" />
+    </SOURCES>
+  </library>
+</component>

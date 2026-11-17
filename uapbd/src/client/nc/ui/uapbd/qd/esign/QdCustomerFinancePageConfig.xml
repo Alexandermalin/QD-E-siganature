@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/cust/finance/cust_finance_config.xml" />
+    <bean id="qdNativeCustFinanceService" class="nc.ui.bd.cust.finance.model.CustFinanceAppModelService" />
+    <bean id="custFinanceService" class="nc.ui.uapbd.qd.esign.QdPartnerOrgInfoModelService"><constructor-arg ref="qdNativeCustFinanceService" /><constructor-arg value="BD_CUSTOMER_FINANCE" /></bean>
+    <bean id="custFinanceSaveAction" class="nc.ui.uapbd.qd.esign.QdPartnerOrgInfoSaveAction">
+        <constructor-arg ref="custFinanceService" /><property name="operationScope" ref="modelDataManager" /><property name="code" value="FiSave" />
+        <property name="model" ref="custFinanceAppModel" /><property name="editor" ref="custFinanceEditor" />
+    </bean>
+</beans>

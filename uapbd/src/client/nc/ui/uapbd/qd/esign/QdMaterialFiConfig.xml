@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/fi/material_fi_config.xml" />
+
+    <bean id="qdNativeMaterialFiAppModelService" class="nc.ui.bd.material.fi.model.MaterialFiAppModelService" />
+    <bean id="materialFiAppModelService" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoModelService">
+        <constructor-arg ref="qdNativeMaterialFiAppModelService" />
+        <constructor-arg value="FiSave" />
+    </bean>
+
+    <bean id="materialFiSaveAction" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoSaveAction">
+        <constructor-arg ref="materialFiAppModelService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="code" value="FiSave" />
+        <property name="model" ref="materialFiAppModel" />
+        <property name="editor" ref="materialFiEditor" />
+    </bean>
+</beans>

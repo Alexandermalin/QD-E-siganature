@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="QD_ESIGN_PROCUREMENT_WORKFLOW_ADAPTER">
+    <public>
+        <component remote="false" singleton="true" tx="CMT">
+            <interface>nc.itf.pu.qd.esign.IProcurementWorkflowOperationAdapter</interface>
+            <implementation>nc.impl.pu.qd.esign.ProcurementWorkflowOperationAdapter</implementation>
+        </component>
+    </public>
+</module>

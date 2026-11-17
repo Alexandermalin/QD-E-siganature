@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/config/Material_Config_Org.xml" />
+
+    <!-- 现场业务单元节点使用集团物料的页签扩展目录；保留其余原生扩展。 -->
+    <bean id="exinfoloader" class="nc.ui.uapbd.qd.esign.QdMaterialGroupExinfoLoader">
+        <property name="current_md_ID" value="10140MAG" />
+    </bean>
+
+    <bean id="modelDataManager" class="nc.ui.uapbd.qd.esign.QdMaterialListModelDataManager">
+        <property name="paginationModel" ref="paginationModel" />
+        <property name="listModel" ref="baseinfoModel" />
+        <property name="queryAssignStatusService" ref="assignService" />
+        <property name="assignContext" ref="assignContext" />
+    </bean>
+
+    <!-- 复用原生模型与扩展页签上下文，接管物料新增和修改的最后一次保存调用。 -->
+    <bean id="service" class="nc.ui.uapbd.qd.esign.QdMaterialModelService">
+        <property name="model" ref="baseinfoModel" />
+        <property name="extendContext" ref="baseExtendContext" />
+    </bean>
+
+    <bean id="saveAction" class="nc.ui.uapbd.qd.esign.QdMaterialSaveAction">
+        <constructor-arg ref="service" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="model" ref="baseinfoModel" />
+        <property name="editor" ref="baseinfoEditor" />
+        <property name="validationService" ref="validationService" />
+        <property name="interceptor" ref="compositeActionInterceptor" />
+    </bean>
+
+    <import resource="classpath:nc/ui/uapbd/qd/esign/QdMaterialFastAssignConfig.xml" />
+</beans>

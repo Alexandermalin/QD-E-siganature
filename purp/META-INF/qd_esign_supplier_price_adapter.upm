@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 附加服务注册：interface 为服务定位契约，implementation 为对应实现；注册存在不代表节点已验证或策略已启用。 -->
+<module name="QD_ESIGN_SUPPLIER_PRICE_ADAPTER">
+    <public>
+        
+    <!-- ISupplierPriceOperationAdapter：仅本地调用，禁止作为远程用户服务暴露；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component singleton="true" remote="false" tx="CMT">
+            <interface>nc.itf.purp.qd.esign.ISupplierPriceOperationAdapter</interface>
+            <implementation>nc.impl.purp.qd.esign.SupplierPriceOperationAdapter</implementation>
+        </component>
+    </public>
+</module>

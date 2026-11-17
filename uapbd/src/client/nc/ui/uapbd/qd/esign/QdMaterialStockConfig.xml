@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/stock/material_stock_config.xml" />
+    <bean id="qdNativeMaterialStockAppModelService" class="nc.ui.bd.material.stock.model.MaterialStockAppModelService" />
+    <bean id="materialStockAppModelService" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoModelService">
+        <constructor-arg ref="qdNativeMaterialStockAppModelService" />
+        <constructor-arg value="StSave" />
+    </bean>
+    <bean id="materialStockSaveAction" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoSaveAction">
+        <constructor-arg ref="materialStockAppModelService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="code" value="StSave" />
+        <property name="model" ref="materialStockAppModel" />
+        <property name="editor" ref="materialStockEditor" />
+        <property name="validationService" ref="materialStockValidationService" />
+    </bean>
+</beans>

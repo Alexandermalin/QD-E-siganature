@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/supplier/config/supplier_finance_config.xml" />
+    <bean id="qdNativeSupFinanceService" class="nc.ui.bd.supplier.finance.model.SupFinanceAppModelService" />
+    <bean id="supFinanceService" class="nc.ui.uapbd.qd.esign.QdSupplierOrgInfoModelService"><constructor-arg ref="qdNativeSupFinanceService" /><constructor-arg value="BD_SUPPLIER_FINANCE" /></bean>
+    <bean id="supFinanceSaveAction" class="nc.ui.uapbd.qd.esign.QdPartnerOrgInfoSaveAction">
+        <constructor-arg ref="supFinanceService" /><property name="operationScope" ref="modelDataManager" /><property name="code" value="FiSave" />
+        <property name="model" ref="supFinanceAppModel" /><property name="editor" ref="supFinanceView" />
+    </bean>
+</beans>

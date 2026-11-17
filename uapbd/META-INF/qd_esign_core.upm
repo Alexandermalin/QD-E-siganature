@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 附加服务注册：interface 为服务定位契约，implementation 为对应实现；注册存在不代表节点已验证或策略已启用。 -->
+<module name="uapbd">
+  <public>
+    
+    <!-- IOperationService：远程入口，实际用户权限仍由服务实现检查；不带业务事务，用于独立认证或分步事务调度；单例实现不得保存请求级共享状态。 -->
+    <component remote="true" singleton="true" tx="NONE">
+      <interface>nc.itf.uapbd.qd.esign.IOperationService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.OperationServiceImpl</implementation>
+    </component>
+    
+    <!-- IOperationTransactionService：仅本地调用，禁止作为远程用户服务暴露；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="false" singleton="true" tx="CMT">
+      <interface>nc.itf.uapbd.qd.esign.IOperationTransactionService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.OperationTransactionServiceImpl</implementation>
+    </component>
+    
+    <!-- ISignatureService：远程入口，实际用户权限仍由服务实现检查；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="true" singleton="true" tx="CMT">
+      <interface>nc.itf.uapbd.qd.esign.ISignatureService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.SignatureServiceImpl</implementation>
+    </component>
+    
+    <!-- IPolicyService：远程入口，实际用户权限仍由服务实现检查；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="true" singleton="true" tx="CMT">
+      <interface>nc.itf.uapbd.qd.esign.IPolicyService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.PolicyServiceImpl</implementation>
+    </component>
+  </public>
+</module>

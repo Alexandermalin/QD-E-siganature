@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Source-only candidate: the ordinary NC batch wizard is unchanged; only its fast dialog is guarded. -->
+    <bean id="batchUpdateWizardAction" class="nc.ui.uapbd.qd.esign.QdPartnerBatchWizardAction">
+        <property name="model" ref="baseinfoModel" />
+        <property name="mdId" value="e4f48eaf-5567-4383-a370-a59cb3e8a451" />
+        <property name="qryTempNodeKey" value="" />
+        <property name="billTempNodekey" value="assign" />
+        <property name="billTemplatePkField" value="pk_customer" />
+        <property name="qryService" ref="service" />
+        <property name="candidateEnabled" value="true" />
+    </bean>
+</beans>

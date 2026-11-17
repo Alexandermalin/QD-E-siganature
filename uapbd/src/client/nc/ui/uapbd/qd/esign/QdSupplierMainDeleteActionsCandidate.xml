@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Candidate only: validate the complete RPC, transaction and external event boundary before deployment. -->
+    <bean id="list_baseinfodeleteaction" class="nc.ui.uapbd.qd.esign.QdPartnerMainDeleteAction">
+        <property name="model" ref="baseinfoModel" /><property name="resourceCode" value="supplier" />
+        <property name="mdOperateCode" value="delete" /><property name="service" ref="service" />
+        <property name="refreshaction" ref="list_refreshAction" />
+    </bean>
+</beans>

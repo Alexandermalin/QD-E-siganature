@@ -1,0 +1,2 @@
+# Preserve the tested source bytes, including legacy Java encodings.
+* -text

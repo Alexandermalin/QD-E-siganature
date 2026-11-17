@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/uapbd/qd/esign/QdWarehouseCandidateConfig.xml" />
+    <bean id="list_enableAction" class="nc.ui.uapbd.qd.esign.QdWarehouseBatchEnableAction">
+        <property name="model" ref="ManageAppModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="stordoc" /><property name="mdOperateCode" value="enable" />
+    </bean>
+    <bean id="list_disableAction" class="nc.ui.uapbd.qd.esign.QdWarehouseBatchDisableAction">
+        <property name="model" ref="ManageAppModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="stordoc" /><property name="mdOperateCode" value="disable" />
+    </bean>
+    <bean id="enableAction" class="nc.ui.uapbd.qd.esign.QdWarehouseCardEnableAction">
+        <property name="model" ref="ManageAppModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="stordoc" /><property name="mdOperateCode" value="enable" />
+    </bean>
+    <bean id="disableAction" class="nc.ui.uapbd.qd.esign.QdWarehouseCardDisableAction">
+        <property name="model" ref="ManageAppModel" /><property name="operationScope" ref="modelDataManager" />
+        <property name="resourceCode" value="stordoc" /><property name="mdOperateCode" value="disable" />
+    </bean>
+</beans>

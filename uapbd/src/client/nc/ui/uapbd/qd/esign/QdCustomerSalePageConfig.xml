@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/cust/sale/cust_sale_config.xml" />
+    <bean id="qdNativeCustSaleService" class="nc.ui.bd.cust.sale.model.CustSaleAppModelService" />
+    <bean id="custSaleAppModelsService" class="nc.ui.uapbd.qd.esign.QdPartnerOrgInfoModelService"><constructor-arg ref="qdNativeCustSaleService" /><constructor-arg value="BD_CUSTOMER_SALE" /></bean>
+    <bean id="custSaleSaveAction" class="nc.ui.uapbd.qd.esign.QdPartnerOrgInfoSaveAction">
+        <constructor-arg ref="custSaleAppModelsService" /><property name="operationScope" ref="modelDataManager" /><property name="code" value="SaSave" />
+        <property name="model" ref="custSaleAppModel" /><property name="editor" ref="custSaleEditor" />
+    </bean>
+</beans>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module priority="1025">
+    <aops>
+        <aspect class="nc.bs.uapbd.qd.esign.audit.SapplyWorkflowBatchAspect"
+                component="nc.itf.uap.pf.IplatFormEntry,nc.itf.uap.pf.IWorkflowMachine"/>
+    </aops>
+</module>

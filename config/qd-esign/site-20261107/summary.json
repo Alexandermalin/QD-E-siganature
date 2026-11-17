@@ -1,0 +1,69 @@
+{
+  "source_date": "2026-11-07",
+  "schema": "QDNC",
+  "formal_nodes": 35,
+  "formal_operations": 243,
+  "physical_nodes": 41,
+  "physical_operation_bindings": 312,
+  "registered_buttons": 1385,
+  "states": {
+    "REGISTERED_BUTTON_RPC_PENDING": 204,
+    "ENTRY_ONLY_SUBPAGE_PENDING": 51,
+    "NO_UNIQUE_REGISTERED_BUTTON": 57
+  },
+  "validated_or_enabled": 0,
+  "existing_duplicate_parameters": [
+    {
+      "node": "10140MCLG",
+      "parameter": "PluginBeanConfigFilePath",
+      "value": "nc/ui/bd/marbasclsext/maintain/config/marbasclsext.xml"
+    },
+    {
+      "node": "10140MCLO",
+      "parameter": "PluginBeanConfigFilePath",
+      "value": "nc/ui/bd/marbasclsext/maintain/config/marbasclsext_org.xml"
+    },
+    {
+      "node": "10140SUG",
+      "parameter": "PluginBeanConfigFilePath",
+      "value": "nc/ui/bd/supplierext/maintain/config/supplierext.xml"
+    },
+    {
+      "node": "10140SUO",
+      "parameter": "PluginBeanConfigFilePath",
+      "value": "nc/ui/bd/supplierext/maintain/config/supplierext_org.xml"
+    }
+  ],
+  "notes": [
+    "注册映射不等于适配完成；所有行均禁用且未通过NC验证",
+    "子页打开入口不作为保存/确认动作",
+    "两个原缺失节点依据现场参数独立映射"
+  ],
+  "file_sha256": {
+    "node-bindings.csv": "8683723f603614232081c69e53415da7ed704b0f863f644f793282ab7388bf07",
+    "operation-bindings.csv": "177a2fded4371164117665911ddeac3ddb3d27ea80289d73acec4bc3cc8698ab"
+  },
+  "evidence_sha256": {
+    "all_node_ui_params.json": "fe25e3fc6e6770c394d1824385118bcf66ef79e0611f8fe67559d6179975a491",
+    "audit_core_columns.json": "b8ec61da54dd51dffea21e1d53e27cff3e44ddf3811f7d3fa73ee63075bd4192",
+    "audit_inventory_columns.json": "bf3c0198edc9e3730afd37b9786948a3ff2091d7878872ef7a023f01fc6cc5a8",
+    "buttons_0.json": "42b5b70f2f18c63bfde487d4a43883beb0ed16601539a091a7813027f02b4b7c",
+    "buttons_1.json": "16113ded352b771fd1a8bfcb6c20246c2d7beb97a8fa01e6eac7050e37f65309",
+    "core_table_names.json": "d64206ccd4637bf5056e04d7d5ff8bc2c87ceb3df325d65adda9332b773081ae",
+    "environment.json": "c9151eb1d6de444dbfc4bf1e9b393678cb508190b9e5b38e288501f69067d89c",
+    "extra_functions.json": "39975f26d5adafac53d9664fe4f4f8ea20462b3a29bd8db4d460d144a642029d",
+    "function_candidates.json": "e03bceb5c12a90c28fdfa253b592f714f7be629f4717824b4f27e3e9ed241d16",
+    "group_business_units.json": "4b3cf25f80eaddacef87e8fc4f90e2882708cfa687613a96d5071ab7215f20f8",
+    "install_privileges.json": "bccd0dd1121e9cf8be6ceb342962eb28498a1067a9cd3a1894b88164e861b49a",
+    "material_events.json": "3e91186ebcb31fe55c2bf8808af2b574b3a89e971a3340784abce2426caab3fa",
+    "metadata_columns.json": "38744b29c96064e071d2abcb8d1c66b6a79a55b8849efd3035f504c08da9c7d0",
+    "metadata_tables.json": "5a224bf16ba1750a1c45b6a988b9fffc5094de8e470803d6761314ac902ca457",
+    "native_alias_types.json": "1a1418701cfdd883bf7414d8536fb00ac848d77311539de3b44831fcba4610e2",
+    "node_params_tables.json": "43336d4bc6498b12167314a48639497c865091042dde83921341dccbe8988365",
+    "node_ui_params.json": "a55348e04cf4368ed20a57085722f2c910247a56a11aea9e7a21254beaa6096d",
+    "original_bill_rules.json": "c54901ca8790879168397568c40ffe3c06e7176c8df64da3f4e9b73feeb9ffa3",
+    "param_register_columns.json": "f2d4f6454c1996d1d2013cd855c01791f231809db762c1ab520807f2cee47d66",
+    "platform_columns.json": "af091d3a0f09d088e4e9df775c29c04b0de2474b70c5c906da2d6bf571078d64",
+    "plugins.json": "81bcc890e370b1c38922d57e443871efab96a9763ca8beaadcd55c6637b4d8d6"
+  }
+}

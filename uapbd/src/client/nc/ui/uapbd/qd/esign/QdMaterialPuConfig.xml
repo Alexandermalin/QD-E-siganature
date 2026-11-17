@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/pu/material_pu_config.xml" />
+
+    <bean id="qdNativeMaterialPuAppModelService" class="nc.ui.bd.material.pu.model.MaterialPuAppModelService" />
+    <bean id="materialPuAppModelService" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoModelService">
+        <constructor-arg ref="qdNativeMaterialPuAppModelService" />
+        <constructor-arg value="PuSave" />
+    </bean>
+
+    <bean id="materialPuSaveAction" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoSaveAction">
+        <constructor-arg ref="materialPuAppModelService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="code" value="PuSave" />
+        <property name="model" ref="materialPuAppModel" />
+        <property name="editor" ref="materialPuEditor" />
+    </bean>
+</beans>

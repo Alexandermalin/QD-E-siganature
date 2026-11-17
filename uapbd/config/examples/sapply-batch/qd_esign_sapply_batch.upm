@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="uapbd">
+    <public>
+        <component remote="false" singleton="true" tx="CMT">
+            <interface>nc.itf.uapbd.qd.esign.ISapplyBatchTransactionService</interface>
+            <implementation>nc.impl.uapbd.qd.esign.SapplyBatchTransactionServiceImpl</implementation>
+        </component>
+        <component remote="false" singleton="true" tx="CMT">
+            <interface>nc.bs.uapbd.qd.esign.audit.SapplyWorkflowBatchAspect$UnitCallback</interface>
+            <implementation>nc.impl.uapbd.qd.esign.SapplyWorkflowBatchUnit</implementation>
+        </component>
+    </public>
+</module>

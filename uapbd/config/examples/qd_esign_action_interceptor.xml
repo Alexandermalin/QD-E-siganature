@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 离线接线参考：下述示例仅供逐节点验证后使用，不能因加入中文说明而启用任何注册。 -->
+<beans>
+    <!--
+    仅为离线接线示例，没有 NC 节点引用本文件。节点通过 NC 验收后，必须同时提供下述两个已验证实现。
+    contextProvider 读取实际所选对象及真实按钮编码；requestConsumer 把请求绑定到该动作最终受控业务 RPC。
+    不能在缺少请求的情况下仍派发未经改造的产品 RPC；绑定接口不能使用静态映射交接。
+
+    <bean id="qdEsignInterceptor" class="nc.ui.uapbd.qd.esign.ElectronicSignatureActionInterceptor">
+        <property name="contextProvider" ref="verifiedNodeContextProvider"/>
+        <property name="requestConsumer" ref="verifiedNodeRequestConsumer"/>
+    </bean>
+
+    将上述 bean 加入已验证动作的原有拦截器列表。原生及插件链全部组装完成后，
+    节点显式初始化适配器必须最后调用：
+      SignatureLifecycleInstaller.install(theNCAction, qdEsignInterceptor)
+    安装器通过 NCAction.getInterceptor/setInterceptor 保留完整原链，本文件不会自动安装或启用。
+    启用前须在 NC 验证真实加载顺序；仅追加 ActionInterceptorInfo 无法保证原生回调短路时完成清理。
+    客户端成功回调绝不能创建业务成功审计记录。内层失败回调返回 true，
+    外层包装器保留原链实际布尔结果及原异常，并始终完成所属生命周期的清理。
+    -->
+</beans>

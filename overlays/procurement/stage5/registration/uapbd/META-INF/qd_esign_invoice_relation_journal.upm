@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="uapbd">
+  <public>
+    <component remote="false" singleton="true" tx="CMT">
+      <interface>nc.itf.uapbd.qd.esign.IInvoiceRelationJournal</interface>
+      <implementation>nc.impl.uapbd.qd.esign.InvoiceRelationJournalImpl</implementation>
+    </component>
+    <component remote="true" singleton="true" tx="NONE">
+      <interface>nc.itf.uapbd.qd.esign.IInvoiceRelationPendingService</interface>
+      <implementation>nc.impl.uapbd.qd.esign.InvoiceRelationPendingServiceImpl</implementation>
+    </component>
+  </public>
+</module>

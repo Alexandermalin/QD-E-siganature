@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 附加服务注册：interface 为服务定位契约，implementation 为对应实现；注册存在不代表节点已验证或策略已启用。 -->
+<module name="QD_ESIGN_INVENTORY_ADAPTER">
+    <public>
+        
+    <!-- IInventoryOperationAdapter：仅本地调用，禁止作为远程用户服务暴露；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component singleton="true" remote="false" tx="CMT">
+            <interface>nc.itf.ic.qd.esign.IInventoryOperationAdapter</interface>
+            <implementation>nc.impl.ic.qd.esign.InventoryOperationAdapter</implementation>
+        </component>
+        <component singleton="true" remote="false" tx="CMT">
+            <interface>nc.itf.ic.qd.esign.IInventoryPfSaveAdapter</interface>
+            <implementation>nc.impl.ic.qd.esign.InventoryPfSaveAdapter</implementation>
+        </component>
+        <!-- Candidate only: the node mapping must remain disabled until the native PF branch is verified. -->
+        <component singleton="true" remote="false" tx="CMT">
+            <interface>nc.itf.ic.qd.esign.IInventoryPfStateAdapter</interface>
+            <implementation>nc.impl.ic.qd.esign.InventoryPfStateAdapter</implementation>
+        </component>
+        <component singleton="true" remote="false" tx="CMT">
+            <interface>nc.itf.ic.qd.esign.ISapplyLineOperationAdapter</interface>
+            <implementation>nc.impl.ic.qd.esign.SapplyLineOperationAdapter</implementation>
+        </component>
+    </public>
+</module>

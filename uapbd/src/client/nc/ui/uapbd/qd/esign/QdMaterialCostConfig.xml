@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/cost/material_cost_config.xml" />
+    <bean id="qdNativeMaterialCostAppModelService" class="nc.ui.bd.material.cost.model.MaterialCostAppModelService" />
+    <bean id="materialCostAppModelService" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoModelService">
+        <constructor-arg ref="qdNativeMaterialCostAppModelService" />
+        <constructor-arg value="CoSave" />
+    </bean>
+    <bean id="materialCostSaveAction" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoSaveAction">
+        <constructor-arg ref="materialCostAppModelService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="code" value="CoSave" />
+        <property name="model" ref="materialCostAppModel" />
+        <property name="editor" ref="materialCostEditor" />
+        <property name="validationService" ref="materialCostValidationService" />
+    </bean>
+</beans>

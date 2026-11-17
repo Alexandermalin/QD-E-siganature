@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/cust/creditctl/cust_creditctl_config.xml" />
+    <bean id="qdNativeCustCreditService" class="nc.ui.bd.cust.creditctl.model.CustCreditctlAppModelService" />
+    <bean id="custCreditctlService" class="nc.ui.uapbd.qd.esign.QdPartnerOrgInfoModelService"><constructor-arg ref="qdNativeCustCreditService" /><constructor-arg value="BD_CUSTOMER_CREDIT" /></bean>
+    <bean id="custCreditctlSaveAction" class="nc.ui.uapbd.qd.esign.QdPartnerOrgInfoSaveAction">
+        <constructor-arg ref="custCreditctlService" /><property name="operationScope" ref="modelDataManager" /><property name="code" value="CrSave" />
+        <property name="model" ref="custCreditctlAppModel" /><property name="editor" ref="custCreditctlEditor" />
+    </bean>
+</beans>

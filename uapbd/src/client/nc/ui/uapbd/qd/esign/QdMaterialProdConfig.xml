@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/prod/material_prod_config.xml" />
+    <bean id="qdNativeMaterialProdAppModelService" class="nc.ui.bd.material.prod.model.MaterialProdAppModelService" />
+    <bean id="materialProdAppModelsService" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoModelService">
+        <constructor-arg ref="qdNativeMaterialProdAppModelService" /><constructor-arg value="PrSave" />
+    </bean>
+    <bean id="materialProdSaveAction" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoSaveAction">
+        <constructor-arg ref="materialProdAppModelsService" /><property name="operationScope" ref="modelDataManager" />
+        <property name="code" value="PrSave" /><property name="model" ref="materialProdAppModel" />
+        <property name="editor" ref="materialProdEditor" /><property name="validationService" ref="materialProdValidationService" />
+    </bean>
+</beans>

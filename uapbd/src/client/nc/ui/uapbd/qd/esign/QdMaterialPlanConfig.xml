@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/plan/material_plan_config.xml" />
+    <bean id="qdNativeMaterialPlanAppModelService" class="nc.ui.bd.material.plan.model.MaterialPlanAppModelService" />
+    <bean id="materialPlanAppModelsService" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoModelService">
+        <constructor-arg ref="qdNativeMaterialPlanAppModelService" />
+        <constructor-arg value="PlSave" />
+    </bean>
+    <bean id="materialPlanSaveAction" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoSaveAction">
+        <constructor-arg ref="materialPlanAppModelsService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="code" value="PlSave" />
+        <property name="model" ref="materialPlanAppModel" />
+        <property name="editor" ref="materialPlanEditor" />
+        <property name="validationService" ref="materialPlanValidationService" />
+    </bean>
+</beans>

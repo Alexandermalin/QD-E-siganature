@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 附加服务注册：interface 为服务定位契约，implementation 为对应实现；注册存在不代表节点已验证或策略已启用。 -->
+<module name="uapbd"><public>
+    <!-- IMaterialOperationAdapter：仅本地调用，禁止作为远程用户服务暴露；加入容器管理事务，异常传播时由容器回滚；单例实现不得保存请求级共享状态。 -->
+    <component remote="false" singleton="true" tx="CMT">
+<interface>nc.itf.uapbd.qd.esign.IMaterialOperationAdapter</interface>
+<implementation>nc.impl.uapbd.qd.esign.MaterialOperationAdapter</implementation>
+</component>
+    <!-- IMaterialMainDeleteAdapter：物料主档删除受控适配器，本地 CMT；图片目录登记随业务事务提交，文件清理由后台任务执行。 -->
+    <component remote="false" singleton="true" tx="CMT">
+<interface>nc.itf.uapbd.qd.esign.IMaterialMainDeleteAdapter</interface>
+<implementation>nc.impl.uapbd.qd.esign.MaterialMainDeleteAdapter</implementation>
+</component>
+    <!-- IMaterialImageCleanupService：提交后图片清理维护服务，本地调用，不参与业务事务。 -->
+    <component remote="false" singleton="true" tx="NONE">
+<interface>nc.itf.uapbd.qd.esign.IMaterialImageCleanupService</interface>
+<implementation>nc.impl.uapbd.qd.esign.MaterialImageCleanupServiceImpl</implementation>
+</component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialOrgInfoOperationAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialOrgInfoOperationAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialProdSaveAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialProdSaveAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.ICustomerFreezeAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.CustomerFreezeAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.ISupplierFreezeAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.SupplierFreezeAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IPartnerStateAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.PartnerStateAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IPartnerMainSaveAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.PartnerMainSaveAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IPartnerBatchAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.PartnerBatchAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialStateAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialStateAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IWarehouseStateAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.WarehouseStateAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IBankAccountStateAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.BankAccountStateAdapter</implementation>
+    </component>
+    <!-- IBankAccountSaveAdapter：银行账户保存（新增/修改）受控适配器，本地 CMT；修改共享账户前取数据库级统一账户锁。 -->
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IBankAccountSaveAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.BankAccountSaveAdapter</implementation>
+    </component>
+    <!-- IBankAccountDeleteAdapter：银行账户删除受控适配器，本地 CMT；与保存、启停共用数据库级统一账户锁。 -->
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IBankAccountDeleteAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.BankAccountDeleteAdapter</implementation>
+    </component>
+    <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.itf.uapbd.qd.esign.IArchiveBatchResultService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.ArchiveBatchResultServiceImpl</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IArchiveTreeDisableAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.ArchiveTreeDisableAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IArchiveTreeEnableAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.ArchiveTreeEnableAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IArchiveTreeSaveAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.ArchiveTreeSaveAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IArchiveTreeDeleteAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.ArchiveTreeDeleteAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IPartnerOrgInfoOperationAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.PartnerOrgInfoOperationAdapter</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IWarehouseSaveAdapter</interface>
+        <implementation>nc.impl.uapbd.qd.esign.WarehouseSaveAdapter</implementation>
+    </component>
+    <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialPageDeleteService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialPageDeleteServiceImpl</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialPageDeleteTransactionService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialPageDeleteTransactionServiceImpl</implementation>
+    </component>
+    <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialAssignmentService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialAssignmentServiceImpl</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialAssignmentTransactionService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialAssignmentTransactionServiceImpl</implementation>
+    </component>
+    <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.itf.uapbd.qd.esign.ICustomerAssignmentService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.CustomerAssignmentServiceImpl</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.ICustomerAssignmentTransactionService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.CustomerAssignmentTransactionServiceImpl</implementation>
+    </component>
+    <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.itf.uapbd.qd.esign.ISupplierAssignmentService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.SupplierAssignmentServiceImpl</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.ISupplierAssignmentTransactionService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.SupplierAssignmentTransactionServiceImpl</implementation>
+    </component>
+    <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialCancelAssignmentService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialCancelAssignmentServiceImpl</implementation>
+    </component>
+    <component remote="false" singleton="true" tx="CMT">
+        <interface>nc.itf.uapbd.qd.esign.IMaterialCancelAssignmentTransactionService</interface>
+        <implementation>nc.impl.uapbd.qd.esign.MaterialCancelAssignmentTransactionServiceImpl</implementation>
+    </component>
+</public></module>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/rack/rack_config.xml" />
+    <bean id="disableAction" class="nc.ui.uapbd.qd.esign.QdArchiveTreeDisableAction">
+        <property name="treeModel" ref="appmodel" /><property name="refreshAction" ref="refreshaction" />
+        <property name="resourceCode" value="rack" /><property name="mdOperateCode" value="disable" />
+    </bean>
+    <bean id="enableAction" class="nc.ui.uapbd.qd.esign.QdArchiveTreeEnableAction">
+        <property name="model" ref="appmodel" /><property name="editor" ref="editor" />
+        <property name="resourceCode" value="rack" /><property name="mdOperateCode" value="enable" />
+    </bean>
+</beans>

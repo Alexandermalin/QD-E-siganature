@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/pu/m21/config/order_config.xml" />
+
+    <bean id="saveAction" class="nc.ui.pu.qd.esign.QdPurchaseOrderSaveAction">
+        <property name="model" ref="manageAppModel" />
+        <property name="editor" ref="billFormEditor" />
+        <property name="actionName" value="SAVEBASE" />
+        <property name="billType" value="21" />
+        <property name="validationService" ref="validateService" />
+    </bean>
+
+    <bean id="deleteAction" class="nc.ui.pu.qd.esign.QdPurchaseOrderDeleteAction">
+        <property name="model" ref="manageAppModel" />
+        <property name="powercheck" value="true" />
+        <property name="permissioncode" value="21" />
+    </bean>
+</beans>

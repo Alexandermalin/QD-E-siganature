@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/uapbd/qd/esign/QdSupplierClassStateConfig.xml" />
+    <bean id="saveAction" class="nc.ui.uapbd.qd.esign.QdArchiveTreeSaveAction">
+        <property name="model" ref="HAppModel" /><property name="editor" ref="billFormEditor" />
+    </bean>
+    <bean id="saveAddAction" class="nc.ui.uapbd.qd.esign.QdArchiveTreeSaveAddAction">
+        <property name="model" ref="HAppModel" /><property name="editor" ref="billFormEditor" /><property name="addAction" ref="addAction" />
+    </bean>
+</beans>

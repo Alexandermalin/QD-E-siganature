@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:nc/ui/bd/material/sale/material_sale_config.xml" />
+    <bean id="qdNativeMaterialSaleAppModelService" class="nc.ui.bd.material.sale.model.MaterialSaleAppModelService" />
+    <bean id="materialSaleAppModelsService" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoModelService">
+        <constructor-arg ref="qdNativeMaterialSaleAppModelService" />
+        <constructor-arg value="SaSave" />
+    </bean>
+    <bean id="materialSaleSaveAction" class="nc.ui.uapbd.qd.esign.QdMaterialOrgInfoSaveAction">
+        <constructor-arg ref="materialSaleAppModelsService" />
+        <property name="operationScope" ref="modelDataManager" />
+        <property name="code" value="SaSave" />
+        <property name="model" ref="materialSaleAppModel" />
+        <property name="editor" ref="materialSaleEditor" />
+        <property name="validationService" ref="materialSaleValidationService" />
+    </bean>
+</beans>
